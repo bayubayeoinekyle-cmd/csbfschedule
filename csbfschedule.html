@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, minimum-scale=0.5, maximum-scale=2.0">
+    <title>CSBFc Class Schedule 2nd Semester A.Y 2025 - 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100vw;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            overflow-y: hidden;
+            perspective: 1000px;
+            font-size: 0.9rem;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: -1;
+            will-change: transform;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 10s infinite linear;
+            will-change: transform, opacity;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            transform: translateZ(50px);
+            will-change: transform;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            will-change: background-position, text-shadow;
+        }
+
+        .header .course-info {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            color: #00ffff;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+            margin-top: 5px;
+            animation: glitchText 2s infinite alternate;
+            will-change: text-shadow;
+        }
+
+        @keyframes glitchText {
+            0% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 2px 2px 0 rgba(255,0,255,0.2), -2px -2px 0 rgba(0,255,0,0.2); }
+            20% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
+            40% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), -1px 1px 0 rgba(255,0,255,0.2), 1px -1px 0 rgba(0,255,0,0.2); }
+            60% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
+            80% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 3px -3px 0 rgba(255,0,255,0.2), -3px 3px 0 rgba(0,255,0,0.2); }
+            100% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .cyber-clock {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .clock-time {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00ffff;
+            text-shadow: 
+                0 0 10px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.5),
+                0 0 30px rgba(0, 255, 255, 0.3);
+            letter-spacing: 1.5px;
+            animation: clockPulse 2s ease-in-out infinite;
+            will-change: text-shadow;
+            line-height: 1.2;
+        }
+
+        .clock-date {
+            font-size: 0.8rem;
+            color: #ff00ff;
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.7);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        @keyframes clockPulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 10px rgba(0, 255, 255, 0.8),
+                    0 0 20px rgba(0, 255, 255, 0.5),
+                    0 0 30px rgba(0, 255, 255, 0.3);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 15px rgba(0, 255, 255, 1),
+                    0 0 30px rgba(0, 255, 255, 0.7),
+                    0 0 45px rgba(0, 255, 255, 0.5);
+            }
+        }
+
+        .table-wrapper {
+            overflow-x: hidden;
+        }
+
+        .schedule-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .schedule-block {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: scheduleFloat 6s ease-in-out infinite alternate;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+
+        .schedule-block:nth-child(1) { animation-delay: 0s; }
+        .schedule-block:nth-child(2) { animation-delay: 1s; }
+
+        .schedule-block:hover {
+            transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+            box-shadow:
+                0 20px 40px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        @keyframes scheduleFloat {
+            0% { transform: translateY(0px) rotateX(0deg); }
+            100% { transform: translateY(-10px) rotateX(2deg); }
+        }
+
+        .schedule-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00ffff;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .schedule-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            animation: lineGlow 2s ease-in-out infinite alternate;
+            will-change: box-shadow;
+        }
+
+        @keyframes lineGlow {
+            0% { box-shadow: 0 0 5px #00ffff; }
+            100% { box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff; }
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 10px 6px;
+            text-align: left;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .schedule-table th {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+            color: #ffffff;
+            font-weight: 600;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .schedule-table th::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+            will-change: background-position;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .schedule-table tr:hover td {
+            background: rgba(0, 255, 255, 0.1);
+            color: #ffffff;
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        .time-cell {
+            color: #00ffff !important;
+            font-weight: 600;
+        }
+
+        .code-cell {
+            color: #ff00ff !important;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+        }
+
+        .subject-cell {
+            color: #ffff00 !important;
+            font-weight: 500;
+        }
+
+        .room-cell {
+            color: #00ff00 !important;
+            font-weight: 500;
+        }
+
+        .holo-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                transparent 30%,
+                rgba(0, 255, 255, 0.1) 50%,
+                transparent 70%);
+            opacity: 0;
+            animation: holoScan 4s infinite;
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+
+        @keyframes holoScan {
+            0%, 90%, 100% { opacity: 0; transform: translateX(-100%); }
+            10%, 80% { opacity: 1; transform: translateX(100%); }
+        }
+
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            z-index: 1000;
+            animation: loadingComplete 2s ease-in-out forwards;
+            will-change: width, opacity;
+        }
+
+        @keyframes loadingComplete {
+            0% { width: 0%; }
+            90% { width: 100%; opacity: 1; }
+            100% { width: 100%; opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .schedule-table th,
+            .schedule-table td {
+                font-size: 0.75rem;
+                padding: 6px 3px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header .course-info {
+                font-size: 1rem;
+            }
+            .clock-time {
+                font-size: 1.1rem;
+                letter-spacing: 1.2px;
+            }
+            .clock-date {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .clock-time {
+                font-size: 1.4rem;
+            }
+            .clock-date {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 3.5rem;
+            }
+
+            .header .course-info {
+                font-size: 1.6rem;
+            }
+
+            .schedule-title {
+                font-size: 2rem;
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+            }
+
+            .schedule-title::after {
+                width: 100px;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 18px 12px;
+                font-size: 1rem;
+            }
+
+            .schedule-container {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .schedule-block {
+                padding: 30px;
+            }
+
+            .schedule-table {
+                min-width: unset;
+                table-layout: auto;
+            }
+
+            .clock-time {
+                font-size: 1.9rem;
+            }
+            .clock-date {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .clock-time {
+                font-size: 2.1rem;
+            }
+            .clock-date {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-bar"></div>
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>CSBF SCHEDULE</h1>
+            <p class="course-info">3rd Year BS Computer Science</p>
+            <p class="course-info">2nd Semester S.Y. 2025 - 2026</p>
+            <div class="cyber-clock">
+                <div class="clock-time" id="clock">00:00:00</div>
+                <div class="clock-date" id="date">Loading...</div>
+            </div>
+        </div>
+
+        <div class="schedule-container">
+            <div class="schedule-block">
+                <div class="holo-effect"></div>
+                <h2 class="schedule-title">MW SCHEDULE</h2>
+                <p style="text-align: center; color: #00ffff; margin-bottom: 20px; font-size: 1.1rem;">Monday & Wednesday</p>
+
+                <div class="table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Code</th>
+                                <th>Subject Name</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">08:00 AM-09:00 AM</td>
+                                <td class="code-cell">CCS 3201</td>
+                                <td class="subject-cell">Artificial Intelligence</td>
+                                <td class="room-cell">LB 815</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">09:00 AM-10:30 AM</td>
+                                <td class="code-cell">ZPD 1102</td>
+                                <td class="subject-cell">Effective Communication with Personality Development</td>
+                                <td class="room-cell">LB 811</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">10:30 AM-12:00 PM</td>
+                                <td class="code-cell">CCS 4980</td>
+                                <td class="subject-cell">Thesis Writing 1 for CS</td>
+                                <td class="room-cell">LB 818</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">01:30 PM-03:00 PM</td>
+                                <td class="code-cell">CCS 3202</td>
+                                <td class="subject-cell">Automata Theory and Formal Languages</td>
+                                <td class="room-cell">LB 803</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">03:00 PM-04:30 PM</td>
+                                <td class="code-cell">CCS 4309</td>
+                                <td class="subject-cell">System Fundamentals</td>
+                                <td class="room-cell">LB 903</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">04:30 PM-05:30 PM</td>
+                                <td class="code-cell">CCS 3103</td>
+                                <td class="subject-cell">System Fundamentals</td>
+                                <td class="room-cell">LB 814</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="schedule-block">
+                <div class="holo-effect"></div>
+                <h2 class="schedule-title">TTH SCHEDULE</h2>
+                <p style="text-align: center; color: #00ffff; margin-bottom: 20px; font-size: 1.1rem;">Tuesday & Thursday</p>
+
+                <div class="table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Code</th>
+                                <th>Subject Name</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">7:30 AM-09:00 AM</td>
+                                <td class="code-cell">ZGE 4304</td>
+                                <td class="subject-cell">Living in the IT Era</td>
+                                <td class="room-cell">LB 807</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">10:30 AM-12:00 PM</td>
+                                <td class="code-cell">CDE 1101</td>
+                                <td class="subject-cell">Applications Development and Emerging Technologies</td>
+                                <td class="room-cell">CS AL B</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">12:00 PM-01:00 PM</td>
+                                <td class="code-cell">CDE 1101</td>
+                                <td class="subject-cell">Applications Development and Emerging Technologies</td>
+                                <td class="room-cell">LB 813</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">01:30 PM-03:00 PM</td>
+                                <td class="code-cell">CCS 3201</td>
+                                <td class="subject-cell">Artificial Intelligence</td>
+                                <td class="room-cell">LB 908</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Convert 0 to 12
+            const hoursStr = String(hours).padStart(2, '0');
+            
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            
+            const dayName = days[now.getDay()];
+            const monthName = months[now.getMonth()];
+            const date = now.getDate();
+            const year = now.getFullYear();
+            
+            document.getElementById('clock').textContent = `${hoursStr}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById('date').textContent = `${dayName}, ${monthName} ${date}, ${year}`;
+        }
+
+        function createParticles() {
+            const particleContainer = document.getElementById('particles');
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        function addHoverEffects() {
+            const rows = document.querySelectorAll('.schedule-table tr');
+            rows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.filter = 'brightness(1.2)';
+                });
+
+                row.addEventListener('mouseleave', () => {
+                    row.style.filter = 'brightness(1)';
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            addHoverEffects();
+            updateClock();
+            setInterval(updateClock, 1000);
+
+            setTimeout(() => {
+                const loadingBar = document.querySelector('.loading-bar');
+                if (loadingBar) {
+                    loadingBar.remove();
+                }
+            }, 2000);
+
+            setTimeout(() => {
+                const container = document.querySelector('.container');
+                container.style.animation = 'fadeIn 1s ease-in';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
